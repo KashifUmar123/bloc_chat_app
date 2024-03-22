@@ -4,6 +4,8 @@ import 'package:bloc_chat_app/core/widgets/custom_button.dart';
 import 'package:bloc_chat_app/core/widgets/custom_scaffold.dart';
 import 'package:bloc_chat_app/core/widgets/custom_textfield.dart';
 import 'package:bloc_chat_app/features/login/login_bloc/login_bloc.dart';
+import 'package:bloc_chat_app/features/login/login_bloc/login_events.dart';
+import 'package:bloc_chat_app/features/login/login_bloc/login_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,28 +30,40 @@ class _LoginScreenState extends State<LoginScreen> {
       create: (con) => _loginBloc,
       child: CustomScaffold(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Chat App With Bloc",
-              style: context.body18400,
-            ),
-            30.heightSpace,
-            const CustomTextfield(
-              hinText: "Enter email",
-            ),
-            20.heightSpace,
-            const CustomTextfield(
-              hinText: "Enter password",
-              isPassword: true,
-            ),
-            30.heightSpace,
-            CustomButton(
-              text: "Login",
-              callback: () {},
-            ),
-          ],
+        child: BlocBuilder<LoginBloc, LoginState>(
+          builder: (_, state) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Chat App With Bloc",
+                  style: context.body18400,
+                ),
+                30.heightSpace,
+                const CustomTextfield(
+                  hinText: "Enter email",
+                ),
+                20.heightSpace,
+                const CustomTextfield(
+                  hinText: "Enter password",
+                  isPassword: true,
+                ),
+                30.heightSpace,
+                CustomButton(
+                  text: "Login",
+                  callback: () {
+                    _loginBloc.add(
+                      LoginUser(
+                        email: "",
+                        password: "",
+                      ),
+                    );
+                  },
+                  isLoading: state is LoginLoading,
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

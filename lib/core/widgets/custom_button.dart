@@ -11,6 +11,7 @@ class CustomButton extends StatelessWidget {
     this.textStyle,
     this.backgroundColor,
     this.height,
+    this.isLoading = false,
   });
 
   final String text;
@@ -19,6 +20,7 @@ class CustomButton extends StatelessWidget {
   final TextStyle? textStyle;
   final Color? backgroundColor;
   final double? height;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +34,15 @@ class CustomButton extends StatelessWidget {
           color: backgroundColor ?? blueColor,
         ),
         child: Center(
-          child: Text(
-            text,
-            style: textStyle ?? context.body18400.copyWith(color: whiteColor),
-          ),
+          child: isLoading
+              ? const CircularProgressIndicator(
+                  color: whiteColor,
+                )
+              : Text(
+                  text,
+                  style: textStyle ??
+                      context.body18400.copyWith(color: whiteColor),
+                ),
         ),
       ),
     );
