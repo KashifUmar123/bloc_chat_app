@@ -2,9 +2,9 @@ import 'package:bloc_chat_app/core/models/user_model.dart';
 
 abstract class SplashState {}
 
-class SplashUserLogin extends SplashState {
+class SplashUserDataState extends SplashState {
   UserModel userModel;
-  SplashUserLogin(this.userModel);
+  SplashUserDataState(this.userModel);
 }
 
 class SplashUserNotFound extends SplashState {}
