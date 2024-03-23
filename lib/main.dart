@@ -1,4 +1,3 @@
-import 'package:bloc_chat_app/features/login/login_screen.dart';
 import 'package:bloc_chat_app/features/splash/splash_bloc/splash_bloc.dart';
 import 'package:bloc_chat_app/features/splash/splash_screen.dart';
 import 'package:flutter/material.dart';

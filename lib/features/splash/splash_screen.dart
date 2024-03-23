@@ -3,7 +3,6 @@ import 'package:bloc_chat_app/core/extensions/num_extension.dart';
 import 'package:bloc_chat_app/core/extensions/style_extension.dart';
 import 'package:bloc_chat_app/core/widgets/custom_scaffold.dart';
 import 'package:bloc_chat_app/features/home/home_screen.dart';
-import 'package:bloc_chat_app/features/login/login_screen.dart';
 import 'package:bloc_chat_app/features/splash/splash_bloc/splash_bloc.dart';
 import 'package:bloc_chat_app/features/splash/splash_bloc/splash_events.dart';
 import 'package:bloc_chat_app/features/splash/splash_bloc/splash_state.dart';
